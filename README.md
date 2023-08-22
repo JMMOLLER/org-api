@@ -150,6 +150,7 @@ Ahora que ya tenemos MongoDB configurado ya lo tenemos casi todo. Ahora realice 
 ## Nota
 Las variables de entorno para este proyecto son:
 - ```APOLLO_GRAPH_REF=```
+- ```ALLOWED_ORIGINS=[]```
 - ```MONGODB_URI=```
 - ```NODE_ENV=```
 - ```PORT=```

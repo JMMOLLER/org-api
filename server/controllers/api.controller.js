@@ -14,7 +14,7 @@ const apiRouter = async(httpServer) => {
 
     api.get("/", (req, res) => {
         res.status(200).json({
-            "message": "Welcome to the Org GraphQL API. Try fetch /api/graphql",
+            "message": "Welcome to the Org GraphQL API. Try go or fetch /api/graphql",
             "version": pkg.version,
             "developer": pkg.author,
             "repository": pkg.repository,

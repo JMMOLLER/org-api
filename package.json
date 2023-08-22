@@ -1,9 +1,9 @@
 {
   "type": "module",
   "name": "org-api",
-  "version": "1.0.1",
-  "description": "GraphQL API for the Org App",
-  "main": "index.js",
+  "version": "1.0.2",
+  "description": "GraphQL API for the Org Web App",
+  "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
     "dev": "nodemon server/index.js --dev",
@@ -22,6 +22,7 @@
   "dependencies": {
     "@apollo/server": "^4.9.1",
     "@graphql-tools/schema": "^10.0.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "graphql": "^16.8.0",
