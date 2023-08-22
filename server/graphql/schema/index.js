@@ -1,4 +1,7 @@
-const typeDefs = `
+// This function is only used to enable the GraphQL extension syntax highlighting in VS Code. Use gql is no longer needed in Apollo Server 3.0.0.
+const gql = (schema)  => schema;
+
+const typeDefs = gql`
     type Query {
         random: Float!
         helpers: [Helper]
@@ -43,4 +46,6 @@ const typeDefs = `
     }
 `;
 
-export { typeDefs };
+export {
+    typeDefs
+};

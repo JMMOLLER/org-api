@@ -148,4 +148,8 @@ Ahora que ya tenemos MongoDB configurado ya lo tenemos casi todo. Ahora realice 
 ¡Explora el esquema de GraphQL, experimenta con consultas y disfruta de esta API generada con Apollo!
 
 ## Nota
-La variable de entorno para este proyecto solo es ```MONGODB_URI```.
+Las variables de entorno para este proyecto son:
+- ```APOLLO_GRAPH_REF=```
+- ```MONGODB_URI=```
+- ```NODE_ENV=```
+- ```PORT=```

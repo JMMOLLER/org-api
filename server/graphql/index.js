@@ -5,8 +5,12 @@ import { WebSocketServer } from "ws";
 import { useServer } from "graphql-ws/lib/use/ws";
 import { resolvers } from "./resolver/index.js";
 import { typeDefs } from "./schema/index.js";
+import {
+    ApolloServerPluginLandingPageLocalDefault,
+    ApolloServerPluginLandingPageProductionDefault,
+} from "@apollo/server/plugin/landingPage/default";
 
-const apolloServer = async(httpServer) => {
+const apolloServer = async (httpServer) => {
     // Create a GraphQL schema and resolvers
     // Create a WebSocket server
     const schema = makeExecutableSchema({
@@ -37,6 +41,10 @@ const apolloServer = async(httpServer) => {
                     };
                 },
             },
+            // This plugin will be used to show the GraphQL Playground when the NODE_ENV is set to development.
+            process.env.NODE_ENV === "production"
+                ? ApolloServerPluginLandingPageProductionDefault({ embed: true, graphRef: process.env.APOLLO_GRAPH_REF })
+                : ApolloServerPluginLandingPageLocalDefault({ embed: true }),
         ],
     });
 
