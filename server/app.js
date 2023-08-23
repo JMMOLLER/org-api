@@ -19,6 +19,7 @@ const ALLOWED_ORIGINS = JSON.parse(process.env.ALLOWED_ORIGINS || "[]");
 app.use(morganConfig())
 app.use(cors({
     origin: ALLOWED_ORIGINS,
+    optionsSuccessStatus: 200
 }));
 app.use("/api", apiRouter);
 app.use("*", ({ res }) => {
