@@ -31,10 +31,11 @@ const resolvers = {
     },
     Mutation: {
         createHelper: async (_, { input }) => {
+            const teamInfo = await TeamBD.getById(input.teamRef);
+            input.teamRef = teamInfo._id;
             const response = await HelperBD.addHelper(input);
-            const newHelper = await TeamBD.getById(response.teamRef).then(
-                (team) => ({ ...response.toObject(), team })
-            );
+            response.team = teamInfo;
+            const newHelper = response;
             pubsub.publish(NEW_HELPER, { newHelper });
             return newHelper;
         },

@@ -40,8 +40,9 @@ class Team {
     async getById(id){
         try{
             this.mongodb(this.url);
-            const response = await TeamModel.findById(id);
-            return response;
+            const isOBJid = mongoose.Types.ObjectId.isValid(id);
+            if(!isOBJid) return await TeamModel.findOne({id});
+            return await TeamModel.findById(id);
         }catch(err){
             logger.error(err);
             return {error: err};
